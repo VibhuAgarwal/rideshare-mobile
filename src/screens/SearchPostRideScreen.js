@@ -15,7 +15,6 @@ import {styles} from '../styles/styles';
 
 const isValidDate = dateStr => {
   if (!dateStr) return true;
-  // Simple YYYY-MM-DD check
   return /^\d{4}-\d{2}-\d{2}$/.test(dateStr);
 };
 
@@ -64,7 +63,7 @@ export function SearchPostRideScreen() {
       if (response.data.length === 0) {
         Alert.alert('No Rides', 'No rides found matching your criteria');
       }
-    } catch (error) {
+    } catch {
       Alert.alert('Error', 'Failed to search rides');
     } finally {
       setLoading(false);
@@ -142,6 +141,7 @@ export function SearchPostRideScreen() {
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
+
       <View style={styles.toggleContainer}>
         <TouchableOpacity
           style={[
@@ -160,6 +160,7 @@ export function SearchPostRideScreen() {
             🔍 Search Ride
           </Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={[
             styles.toggleButton,
@@ -183,6 +184,7 @@ export function SearchPostRideScreen() {
         <TextInput
           style={styles.input}
           placeholder="From"
+          placeholderTextColor="#666"
           value={formData.from}
           onChangeText={text => setFormData({...formData, from: text})}
         />
@@ -190,6 +192,7 @@ export function SearchPostRideScreen() {
         <TextInput
           style={styles.input}
           placeholder="To"
+          placeholderTextColor="#666"
           value={formData.to}
           onChangeText={text => setFormData({...formData, to: text})}
         />
@@ -197,6 +200,7 @@ export function SearchPostRideScreen() {
         <TextInput
           style={styles.input}
           placeholder="Date (YYYY-MM-DD)"
+          placeholderTextColor="#666"
           value={formData.date}
           onChangeText={text => setFormData({...formData, date: text})}
         />
@@ -204,6 +208,7 @@ export function SearchPostRideScreen() {
         <TextInput
           style={styles.input}
           placeholder="Seats"
+          placeholderTextColor="#666"
           value={formData.seats}
           onChangeText={text => setFormData({...formData, seats: text})}
           keyboardType="numeric"
@@ -213,6 +218,7 @@ export function SearchPostRideScreen() {
           <TextInput
             style={styles.input}
             placeholder="Price per Seat (₹)"
+            placeholderTextColor="#666"
             value={formData.price}
             onChangeText={text => setFormData({...formData, price: text})}
             keyboardType="numeric"
