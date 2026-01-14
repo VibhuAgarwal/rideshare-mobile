@@ -4,7 +4,14 @@
     "slug": "rideshare-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "platforms": ["ios", "android", "web"],
-    "jsEngine": "hermes"
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "jsEngine": "hermes",
+    "plugins": [
+      "@react-native-community/datetimepicker"
+    ]
   }
 }
